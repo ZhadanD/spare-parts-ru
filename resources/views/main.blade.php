@@ -28,6 +28,11 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link link-dark">Категории</a>
                         </li>
+                        @if(isset(auth()->user()->role) && auth()->user()->role === 'admin')
+                            <li class="nav-item">
+                                <a href="{{ route('admin.main') }}" class="nav-link link-dark">В админку</a>
+                            </li>
+                        @endif
 
                         @if(isset(auth()->user()->name))
                             <div class="dropdown">
