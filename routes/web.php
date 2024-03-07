@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
         Route::get('/', 'IndexController')->name('admin.main');
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
    });
 });
 
