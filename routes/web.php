@@ -11,6 +11,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
         Route::get('/', 'IndexController')->name('admin.main');
         Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+        Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
    });
 });
 
