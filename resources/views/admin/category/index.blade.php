@@ -11,7 +11,7 @@ $title = 'Категории'
                 Создать категорию
             </button>
             <div id="form-create-category" class="accordion-collapse collapse" data-bs-parent="#create-category">
-                <form method="POST" action="{{ route('categories.store') }}">
+                <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <input name="img" type="file" class="form-control border border-dark">
@@ -53,25 +53,29 @@ $title = 'Категории'
 
     <div class="border border-3 border-success rounded p-3">
         <div class="row">
-            @foreach($categories as $category)
-                <div class="col-lg-4 col-md-6 col-sm-12 p-2">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ $category->img }}" class="card-img-top" alt="Картинка">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $category->name }}</h5>
-                            <p class="card-text">{{ $category->short_desc }}</p>
-                            <div class="row">
-                                <div class="col"><a href="#" class="btn btn-dark">Подробнее</a></div>
-                                <div class="col">
-                                    <form>
-                                        <button type="submit" class="btn btn-danger">Удалить</button>
-                                    </form>
+            @if(count($categories) === 0)
+                <p class="fs-3 text-center">Нет категорий</p>
+            @else
+                @foreach($categories as $category)
+                    <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ asset('storage/' . $category->img) }}" class="card-img-top" alt="Картинка">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $category->name }}</h5>
+                                <p class="card-text">{{ $category->short_desc }}</p>
+                                <div class="row">
+                                    <div class="col"><a href="#" class="btn btn-dark">Подробнее</a></div>
+                                    <div class="col">
+                                        <form>
+                                            <button type="submit" class="btn btn-danger">Удалить</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection

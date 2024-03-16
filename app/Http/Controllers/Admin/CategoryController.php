@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -26,6 +27,8 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $data = $request->validated();
+
+        $data['img'] = Storage::disk('public')->put('/images', $data['img']);
 
         $this->service->store($data);
 

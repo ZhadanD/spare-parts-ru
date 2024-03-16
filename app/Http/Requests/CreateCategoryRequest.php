@@ -22,6 +22,7 @@ class CreateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'img' => 'required|file',
             'name' => 'required|string|max:20',
             'short_desc' => 'required|string|max:50',
             'desc' => 'required|string|max:100',
