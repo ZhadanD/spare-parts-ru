@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -28,9 +27,21 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        $data['img'] = Storage::disk('public')->put('/images', $data['img']);
-
         $this->service->store($data);
+
+        return redirect()->route('categories.index');
+    }
+
+    public function show($category_id)
+    {
+        $category = $this->service->show($category_id);
+
+        return view('admin.category.show', compact('category'));
+    }
+
+    public function destroy($category_id)
+    {
+        $this->service->destroy($category_id);
 
         return redirect()->route('categories.index');
     }

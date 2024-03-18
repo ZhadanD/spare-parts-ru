@@ -63,6 +63,7 @@
     </div>
 </main>
 
-<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/js/admin.js') }}"></script>
 </body>
 </html>

@@ -63,13 +63,17 @@ $title = 'Категории'
                             <div class="card-body">
                                 <h5 class="card-title">{{ $category->name }}</h5>
                                 <p class="card-text">{{ $category->short_desc }}</p>
-                                <div class="row">
-                                    <div class="col"><a href="#" class="btn btn-dark">Подробнее</a></div>
-                                    <div class="col">
-                                        <form>
-                                            <button type="submit" class="btn btn-danger">Удалить</button>
-                                        </form>
+                                <div class="d-flex">
+                                    <div class="m-2">
+                                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-dark">Подробнее</a>
                                     </div>
+
+                                    <form id="delete-category" class="m-2" action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+
+                                        <input onclick="deleteCategory('{{ $category->name }}')" type="button" class="btn btn-danger" value="Удалить">
+                                    </form>
                                 </div>
                             </div>
                         </div>

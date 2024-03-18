@@ -10,8 +10,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
         Route::get('/', 'IndexController')->name('admin.main');
-        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-        Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+
+        Route::group(['prefix' => 'categories'], function () {
+            Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+            Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+            Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
+            Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+        });
    });
 });
 
