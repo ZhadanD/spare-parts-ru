@@ -46,11 +46,11 @@ $title = "Категория: $category->name"
         <div class="d-flex">
             <button type="button" class="btn btn-warning m-2">Редактировать</button>
 
-            <form id="delete-category" class="m-2" action="{{ route('categories.destroy', $category->id) }}" method="post">
+            <form id="{{ 'delete-category' . "-$category->id" }}" class="m-2" action="{{ route('categories.destroy', $category->id) }}" method="post">
                 @csrf
                 @method('delete')
 
-                <input onclick="deleteCategory('{{ $category->name }}')" type="button" class="btn btn-danger" value="Удалить">
+                <input onclick="deleteCategory('{{ $category->name }}', {{ $category->id }})" type="button" class="btn btn-danger" value="Удалить">
             </form>
         </div>
     </div>
