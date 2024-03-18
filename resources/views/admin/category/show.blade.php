@@ -12,7 +12,8 @@ $title = "Категория: $category->name"
 
         <br/>
 
-        <input name="img" type="hidden" class="form-control border border-dark">
+        <label style="display: none" id="label-img" for="img" class="fs-5">Изображение категории</label>
+        <input id="img" name="img" type="hidden" class="form-control border border-dark">
         @error('img')
         <p class="text-danger">{{ $message }}</p>
         @enderror
@@ -43,8 +44,8 @@ $title = "Категория: $category->name"
 
         <br/>
 
-        <div class="d-flex">
-            <button type="button" class="btn btn-warning m-2">Редактировать</button>
+        <div id="buttons-change-delete" class="d-flex">
+            <button onclick="changeCategory()" type="button" class="btn btn-warning m-2">Редактировать</button>
 
             <form id="{{ 'delete-category' . "-$category->id" }}" class="m-2" action="{{ route('categories.destroy', $category->id) }}" method="post">
                 @csrf

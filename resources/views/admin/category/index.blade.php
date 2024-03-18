@@ -14,6 +14,7 @@ $title = 'Категории'
                 <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
                     @csrf
 
+                    <label for="img" class="fs-5">Изображение категории</label>
                     <input name="img" type="file" class="form-control border border-dark">
                     @error('img')
                         <p class="text-danger">{{ $message }}</p>
