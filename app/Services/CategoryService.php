@@ -32,4 +32,16 @@ class CategoryService
 
         $category->delete();
     }
+
+    public function update($data, $category_id): void
+    {
+        $category = Category::findOrFail($category_id);
+
+        if(isset($data['img'])) {
+            Storage::disk('public')->delete($category->img);
+            $data['img'] = Storage::disk('public')->put('/images', $data['img']);
+        }
+
+        $category->update($data);
+    }
 }

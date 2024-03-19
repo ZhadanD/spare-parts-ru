@@ -53,7 +53,7 @@ function changeCategory() {
     let buttons = `
         <button onclick="closeChangeCategory()" type="button" class="btn btn-secondary m-2">Отменить</button>
 
-        <button type="button" class="btn btn-warning m-2">Редактировать</button>
+        <button onclick="updateCategory()" type="button" class="btn btn-warning m-2">Редактировать</button>
     `
 
     changeContent('file', buttons, false)
@@ -61,4 +61,12 @@ function changeCategory() {
 
 function closeChangeCategory() {
     changeContent('hidden', category.currentContent, true, true)
+}
+
+function updateCategory() {
+    document.getElementById('update-category').submit()
+}
+
+function closeError(errorId) {
+    document.getElementById(errorId).remove()
 }

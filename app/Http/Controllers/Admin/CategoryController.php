@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
@@ -44,5 +45,14 @@ class CategoryController extends Controller
         $this->service->destroy($category_id);
 
         return redirect()->route('categories.index');
+    }
+
+    public function update(UpdateCategoryRequest $request, $category_id)
+    {
+        $data = $request->validated();
+
+        $this->service->update($data, $category_id);
+
+        return redirect()->route('categories.show', $category_id);
     }
 }

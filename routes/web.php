@@ -16,6 +16,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
             Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
             Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+            Route::put('/{category}', [CategoryController::class, 'update'])->name('categories.update');
         });
    });
 });

@@ -8,39 +8,60 @@ $title = "Категория: $category->name"
     <div class="border border-3 border-success rounded p-3">
         <div class="text-center">
             <img width="400" src="{{ asset('storage/' . $category->img) }}" alt="Картинка категории" class="img-fluid rounded">
+            @error('img')
+                <div id="img-error" class="d-flex justify-content-center jus">
+                    <p class="text-danger fs-3 m-2">{{ $message }}</p>
+
+                    <button onclick="closeError('img-error')" type="button" class="btn btn-danger m-2">X</button>
+                </div>
+            @enderror
+            @error('name')
+                <div id="name-error" class="d-flex justify-content-center jus">
+                    <p class="text-danger fs-3 m-2">{{ $message }}</p>
+
+                    <button onclick="closeError('name-error')" type="button" class="btn btn-danger m-2">X</button>
+                </div>
+            @enderror
+            @error('short_desc')
+                <div id="short-desc-error" class="d-flex justify-content-center jus">
+                    <p class="text-danger fs-3 m-2">{{ $message }}</p>
+
+                    <button onclick="closeError('short-desc-error')" type="button" class="btn btn-danger m-2">X</button>
+                </div>
+            @enderror
+            @error('desc')
+                <div id="desc-error" class="d-flex justify-content-center jus">
+                    <p class="text-danger fs-3 m-2">{{ $message }}</p>
+
+                    <button onclick="closeError('desc-error')" type="button" class="btn btn-danger m-2">X</button>
+                </div>
+            @enderror
         </div>
 
         <br/>
 
-        <label style="display: none" id="label-img" for="img" class="fs-5">Изображение категории</label>
-        <input id="img" name="img" type="hidden" class="form-control border border-dark">
-        @error('img')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
+        <form id="update-category" action="{{ route('categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('put')
 
-        <br/>
+            <label style="display: none" id="label-img" for="img" class="fs-5">Изображение категории</label>
+            <input id="img" name="img" type="hidden" class="form-control border border-dark">
 
-        <label for="name" class="fs-5">Название</label>
-        <input disabled value="{{ $category->name }}" name="name" maxlength="20" required id="name" type="text" class="form-control border border-dark" placeholder="Введите название категории">
-        @error('name')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
+            <br/>
 
-        <br/>
+            <label for="name" class="fs-5">Название</label>
+            <input disabled value="{{ $category->name }}" name="name" maxlength="20" required id="name" type="text" class="form-control border border-dark" placeholder="Введите название категории">
 
-        <label for="short-desc" class="fs-5">Краткое описание</label>
-        <textarea disabled maxlength="50" required name="short_desc" id="short-desc" class="form-control border border-dark" placeholder="Введите краткое описание">{{ $category->short_desc }}</textarea>
-        @error('short_desc')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
+            <br/>
 
-        <br/>
+            <label for="short-desc" class="fs-5">Краткое описание</label>
+            <textarea disabled maxlength="50" required name="short_desc" id="short-desc" class="form-control border border-dark" placeholder="Введите краткое описание">{{ $category->short_desc }}</textarea>
 
-        <label for="desc" class="fs-5">Описание</label>
-        <textarea disabled maxlength="100" required name="desc" id="desc" class="form-control border border-dark" placeholder="Введите описание">{{ $category->desc }}</textarea>
-        @error('desc')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
+            <br/>
+
+            <label for="desc" class="fs-5">Описание</label>
+            <textarea disabled maxlength="100" required name="desc" id="desc" class="form-control border border-dark" placeholder="Введите описание">{{ $category->desc }}</textarea>
+        </form>
 
         <br/>
 

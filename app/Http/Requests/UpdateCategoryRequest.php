@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class CreateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'img' => 'required|file',
+            'img' => 'file',
             'name' => 'required|string|max:20',
             'short_desc' => 'required|string|max:50',
             'desc' => 'required|string|max:100',
@@ -41,7 +41,6 @@ class CreateCategoryRequest extends FormRequest
             'short_desc.required' => 'Краткое описание категории не должно быть пустым!',
             'short_desc.string' => 'Краткое описание категории должно быть строкой!',
             'short_desc.max' => 'Краткое описание категории должно быть меньше 50 символов!',
-            'img.required' => 'Изображение категории не должно быть пустым!',
             'img.file' => 'Изображение категории должно быть файлом!',
             'desc.required' => 'Описание категории не должно быть пустым!',
             'desc.string' => 'Описание категории должно быть строкой!',
