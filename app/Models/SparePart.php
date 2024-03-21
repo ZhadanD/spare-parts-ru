@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class SparePart extends Model
 {
     use HasFactory;
 
     protected $guarded = false;
 
-    protected $table = 'categories';
+    protected $table = 'spare_parts';
 }

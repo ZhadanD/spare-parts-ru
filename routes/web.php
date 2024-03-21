@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SparePartsController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
             Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
             Route::put('/{category}', [CategoryController::class, 'update'])->name('categories.update');
+        });
+
+        Route::group(['prefix' => 'spare-parts'], function () {
+            Route::get('/', [SparePartsController::class, 'index'])->name('spare-parts.index');
         });
    });
 });

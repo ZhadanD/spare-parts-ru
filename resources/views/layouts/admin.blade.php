@@ -30,7 +30,7 @@
                         <a href="{{ route('categories.index') }}" class="nav-link link-dark">Категории</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link link-dark">Запчасти</a>
+                        <a href="{{ route('spare-parts.index') }}" class="nav-link link-dark">Запчасти</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('main') }}" class="nav-link link-dark">В магазин</a>

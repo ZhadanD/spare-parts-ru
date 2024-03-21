@@ -1,20 +1,20 @@
 <?php
-$title = 'Категории'
+$title = 'Запчасти'
 ?>
 @extends('layouts.admin')
 @section('content')
-    <p class="fs-1 text-center">Категории</p>
+    <p class="fs-1 text-center">Запчасти</p>
 
-    <div class="accordion accordion-flush mb-3" id="create-category">
+    <div class="accordion accordion-flush mb-3" id="create-spare-parts">
         <div class="accordion-item">
-            <button class="btn btn-dark mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#form-create-category" aria-expanded="false" aria-controls="form-create-category">
-                Создать категорию
+            <button class="btn btn-dark mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#form-create-spare-parts" aria-expanded="false" aria-controls="form-create-spare-parts">
+                Создать запчасть
             </button>
-            <div id="form-create-category" class="accordion-collapse collapse" data-bs-parent="#create-category">
-                <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
+            <div id="form-create-spare-parts" class="accordion-collapse collapse" data-bs-parent="#create-spare-parts">
+                <form enctype="multipart/form-data">
                     @csrf
 
-                    <label for="img" class="fs-5">Изображение категории</label>
+                    <label for="img" class="fs-5">Изображение запчасти</label>
                     <input name="img" type="file" class="form-control border border-dark">
                     @error('img')
                         <p class="text-danger">{{ $message }}</p>
@@ -23,7 +23,7 @@ $title = 'Категории'
                     <br/>
 
                     <label for="name" class="fs-5">Название</label>
-                    <input value="{{ old('name') }}" name="name" maxlength="20" required id="name" type="text" class="form-control border border-dark" placeholder="Введите название категории">
+                    <input value="{{ old('name') }}" name="name" maxlength="20" required id="name" type="text" class="form-control border border-dark" placeholder="Введите название запчасти">
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -54,26 +54,26 @@ $title = 'Категории'
 
     <div class="border border-3 border-success rounded p-3">
         <div class="row">
-            @if(count($categories) === 0)
-                <p class="fs-3 text-center">Нет категорий</p>
+            @if(count($spare_parts) === 0)
+                <p class="fs-3 text-center">Нет запчастей</p>
             @else
-                @foreach($categories as $category)
+                @foreach($spare_parts as $spare_part)
                     <div class="col-lg-4 col-md-6 col-sm-12 p-2">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('storage/' . $category->img) }}" class="card-img-top" alt="Картинка">
+                            <img src="{{ asset('storage/' . $spare_part->img) }}" class="card-img-top" alt="Картинка">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $category->name }}</h5>
-                                <p class="card-text">{{ $category->short_desc }}</p>
+                                <h5 class="card-title">{{ $spare_part->name }}</h5>
+                                <p class="card-text">{{ $spare_part->short_desc }}</p>
                                 <div class="d-flex">
                                     <div class="m-2">
-                                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-dark">Подробнее</a>
+                                        <a href="#" class="btn btn-dark">Подробнее</a>
                                     </div>
 
-                                    <form id="{{ 'delete-category' . "-$category->id" }}" class="m-2" action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                    <form id="{{ 'delete-spare-part' . "-$spare_part->id" }}" class="m-2" method="post">
                                         @csrf
                                         @method('delete')
 
-                                        <input onclick="deleteCategory('{{ $category->name }}', {{ $category->id }})" type="button" class="btn btn-danger" value="Удалить">
+                                        <input onclick="deleteSparePart('{{ $spare_part->name }}', {{ $spare_part->id }})" type="button" class="btn btn-danger" value="Удалить">
                                     </form>
                                 </div>
                             </div>
@@ -84,5 +84,5 @@ $title = 'Категории'
         </div>
     </div>
 
-    <script src="{{ asset('/js/admin.categories.js') }}"></script>
+    <script src="{{ asset('/js/admin.spare-parts.js') }}"></script>
 @endsection
