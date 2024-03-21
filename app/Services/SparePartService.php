@@ -27,7 +27,7 @@ class SparePartService
             'short_desc' => $data['short_desc'],
             'desc' => $data['desc'],
             'status' => $data['status'],
-            'category_id' => $data['category'],
+            'category_id' => isset($data['category']) ? $data['category'] : null,
         ]);
     }
 

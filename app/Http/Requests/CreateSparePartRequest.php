@@ -27,7 +27,7 @@ class CreateSparePartRequest extends FormRequest
             'short_desc' => 'required|string|max:50',
             'desc' => 'required|string|max:100',
             'status' => 'required|string|max:20',
-            'category' => 'required|int',
+            'category' => '',
         ];
     }
 
@@ -51,8 +51,6 @@ class CreateSparePartRequest extends FormRequest
             'status.required' => 'Статус запчасти не должен быть пустым!',
             'status.string' => 'Статус запчасти должен быть строкой!',
             'status.max' => 'Статус запчасти должен быть меньше 20 символов!',
-            'category.required' => 'Укажите категорию для запчасти!',
-            'category.int' => 'Укажите корректный формат данных!',
         ];
     }
 }

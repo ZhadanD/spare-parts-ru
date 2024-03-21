@@ -12,4 +12,9 @@ class Category extends Model
     protected $guarded = false;
 
     protected $table = 'categories';
+
+    public function spareParts()
+    {
+        return $this->hasMany(SparePart::class, 'category_id', 'id');
+    }
 }

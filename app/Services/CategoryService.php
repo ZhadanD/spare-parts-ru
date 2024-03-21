@@ -28,6 +28,12 @@ class CategoryService
     {
         $category = Category::findOrFail($category_id);
 
+        foreach ($category->spareParts as $sparePart) {
+            $sparePart->update([
+                'category_id' => null,
+            ]);
+        }
+
         Storage::disk('public')->delete($category->img);
 
         $category->delete();

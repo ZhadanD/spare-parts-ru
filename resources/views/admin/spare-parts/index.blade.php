@@ -26,7 +26,7 @@ $title = 'Запчасти'
                     <br/>
 
                     <label for="category" class="fs-5">Категория</label>
-                    <select required name="category" id="category" class="form-select border border-dark">
+                    <select name="category" id="category" class="form-select border border-dark">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
