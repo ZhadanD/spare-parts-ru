@@ -15,7 +15,7 @@ $title = 'Категории'
                     @csrf
 
                     <label for="img" class="fs-5">Изображение категории</label>
-                    <input name="img" type="file" class="form-control border border-dark">
+                    <input required name="img" type="file" class="form-control border border-dark">
                     @error('img')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror

@@ -11,11 +11,22 @@ $title = 'Запчасти'
                 Создать запчасть
             </button>
             <div id="form-create-spare-parts" class="accordion-collapse collapse" data-bs-parent="#create-spare-parts">
-                <form enctype="multipart/form-data">
+                <form enctype="multipart/form-data" method="post" action="{{ route('spare-parts.store') }}">
                     @csrf
 
+                    <label for="status" class="fs-5">Статус</label>
+                    <select required name="status" id="status" class="form-select border border-dark">
+                        <option {{ old('status') == 'Черновик' ? 'selected' : '' }}>Черновик</option>
+                        <option {{ old('status') == 'Опубликована' ? 'selected' : '' }}>Опубликована</option>
+                    </select>
+                    @error('status')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
+                    <br/>
+
                     <label for="img" class="fs-5">Изображение запчасти</label>
-                    <input name="img" type="file" class="form-control border border-dark">
+                    <input required name="img" type="file" class="form-control border border-dark">
                     @error('img')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
