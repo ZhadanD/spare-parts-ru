@@ -73,6 +73,8 @@ $title = 'Запчасти'
                         <div class="card" style="width: 18rem;">
                             <img src="{{ asset('storage/' . $spare_part->img) }}" class="card-img-top" alt="Картинка">
                             <div class="card-body">
+                                <p class="fs-4 text-center {{ $spare_part->status == 'Опубликована' ? 'text-success' : 'text-primary' }}">{{ $spare_part->status }}</p>
+
                                 <h5 class="card-title">{{ $spare_part->name }}</h5>
                                 <p class="card-text">{{ $spare_part->short_desc }}</p>
                                 <div class="d-flex">
