@@ -30,4 +30,13 @@ class SparePartService
             'category_id' => $data['category'],
         ]);
     }
+
+    public function destroy($spare_part_id): void
+    {
+        $spare_part = SparePart::findOrFail($spare_part_id);
+
+        Storage::disk('public')->delete($spare_part->img);
+
+        $spare_part->delete();
+    }
 }

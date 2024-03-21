@@ -35,4 +35,11 @@ class SparePartsController extends Controller
 
         return redirect()->route('spare-parts.index');
     }
+
+    public function destroy($spare_part_id)
+    {
+        $this->service->destroy($spare_part_id);
+
+        return redirect()->route('spare-parts.index');
+    }
 }

@@ -94,7 +94,7 @@ $title = 'Запчасти'
                                         <a href="#" class="btn btn-dark">Подробнее</a>
                                     </div>
 
-                                    <form id="{{ 'delete-spare-part' . "-$spare_part->id" }}" class="m-2" method="post">
+                                    <form id="{{ 'delete-spare-part' . "-$spare_part->id" }}" class="m-2" method="post" action="{{ route('spare-parts.destroy', $spare_part->id) }}">
                                         @csrf
                                         @method('delete')
 

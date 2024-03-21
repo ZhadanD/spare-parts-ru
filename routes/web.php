@@ -23,6 +23,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::group(['prefix' => 'spare-parts'], function () {
             Route::get('/', [SparePartsController::class, 'index'])->name('spare-parts.index');
             Route::post('/', [SparePartsController::class, 'store'])->name('spare-parts.store');
+            Route::delete('/{spare_part}', [SparePartsController::class, 'destroy'])->name('spare-parts.destroy');
         });
    });
 });
