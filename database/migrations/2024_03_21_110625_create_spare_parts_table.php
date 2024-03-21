@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('desc');
             $table->string('status');
 
+            $table->unsignedBigInteger('category_id');
+            $table->index('category_id', 'spare_parts_category_idx');
+            $table->foreign('category_id', 'spare_parts_category_fk')->on('categories')->references('id');
+
             $table->timestamps();
         });
     }

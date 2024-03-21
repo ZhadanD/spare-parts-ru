@@ -25,6 +25,18 @@ $title = 'Запчасти'
 
                     <br/>
 
+                    <label for="category" class="fs-5">Категория</label>
+                    <select required name="category" id="category" class="form-select border border-dark">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('category')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
+                    <br/>
+
                     <label for="img" class="fs-5">Изображение запчасти</label>
                     <input required name="img" type="file" class="form-control border border-dark">
                     @error('img')

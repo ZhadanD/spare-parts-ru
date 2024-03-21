@@ -19,9 +19,12 @@ class SparePartsController extends Controller
 
     public function index(): View
     {
-        $spare_parts = $this->service->index();
+        $arr = $this->service->index();
 
-        return view('admin.spare-parts.index', compact('spare_parts'));
+        $spare_parts = $arr['spare_parts'];
+        $categories = $arr['categories'];
+
+        return view('admin.spare-parts.index', compact('spare_parts', 'categories'));
     }
 
     public function store(CreateSparePartRequest $request)
