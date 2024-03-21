@@ -76,4 +76,6 @@ $title = "Категория: $category->name"
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('/js/admin.category.js') }}"></script>
 @endsection
