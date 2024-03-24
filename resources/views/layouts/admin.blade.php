@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="icon" href="/img/car-front.svg">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="icon" href="{{ asset('img/car-front.svg') }}">
 
     <title><?=$title?></title>
 </head>
@@ -15,8 +15,11 @@
 <header>
     <div class="container">
         <div class="border-bottom pb-3 mb-3 d-flex justify-content-center flex-wrap py-3">
-            <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                <img src="/img/car-front.svg" alt="Логотип" width="70">
+            <div class="d-flex flex-column mb-3 mb-md-0 me-md-auto">
+                <div class="text-center">
+                    <img src="{{ asset('img/car-front.svg') }}" alt="Логотип" width="50">
+                </div>
+                <span class="fs-4">Запчасти.ру</span>
             </div>
 
             <p class="mx-auto fs-2">Админ панель</p>

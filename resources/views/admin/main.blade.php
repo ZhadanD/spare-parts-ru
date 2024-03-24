@@ -6,7 +6,7 @@ $title = 'Главная'
     <p class="fs-1 text-center">Главная</p>
 
     <div class="border border-3 border-success rounded p-3">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center flex-wrap">
             <div class="card m-2" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title text-center">Пользователей на сайте</h5>
