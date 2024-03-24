@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Профиль') }}
-        </h2>
+        <div class="flex">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Профиль') }}
+            </h2>
+            @if(isset(auth()->user()->role) && auth()->user()->role === 'admin')
+                <a href="{{ route('admin.main') }}" class="font-semibold text-xl text-gray-800 ml-3">В админку</a>
+            @endif
+        </div>
     </x-slot>
 
     <div class="py-12">
