@@ -21,16 +21,20 @@
 
             <p class="mx-auto fs-2">Админ панель</p>
 
+            <?php
+                $currentUrl = request()->url();
+            ?>
+
             <nav class="d-flex justify-content-end">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a href="{{ route('admin.main') }}" class="nav-link link-dark">Главная</a>
+                        <a href="{{ route('admin.main') }}" class="nav-link {{ $currentUrl === route('admin.main') ? 'link-light bg-dark' : 'link-dark' }}">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('categories.index') }}" class="nav-link link-dark">Категории</a>
+                        <a href="{{ route('categories.index') }}" class="nav-link {{ $currentUrl === route('categories.index') ? 'link-light bg-dark' : 'link-dark' }}">Категории</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('spare-parts.index') }}" class="nav-link link-dark">Запчасти</a>
+                        <a href="{{ route('spare-parts.index') }}" class="nav-link {{ $currentUrl === route('spare-parts.index') ? 'link-light bg-dark' : 'link-dark' }}">Запчасти</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('main') }}" class="nav-link link-dark">В магазин</a>
