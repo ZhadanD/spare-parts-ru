@@ -91,7 +91,7 @@ $title = 'Запчасти'
                                 <p class="card-text">{{ $spare_part->short_desc }}</p>
                                 <div class="d-flex">
                                     <div class="m-2">
-                                        <a href="#" class="btn btn-dark">Подробнее</a>
+                                        <a href="{{ route('spare-parts.show', $spare_part->id) }}" class="btn btn-dark">Подробнее</a>
                                     </div>
 
                                     <form id="{{ 'delete-spare-part' . "-$spare_part->id" }}" class="m-2" method="post" action="{{ route('spare-parts.destroy', $spare_part->id) }}">

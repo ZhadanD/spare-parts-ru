@@ -12,4 +12,9 @@ class SparePart extends Model
     protected $guarded = false;
 
     protected $table = 'spare_parts';
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
