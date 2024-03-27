@@ -10,7 +10,7 @@ class SparePartService
 {
     public function index(): array
     {
-        $spare_parts = SparePart::all(['id', 'img', 'name', 'short_desc', 'status']);
+        $spare_parts = SparePart::paginate(10, ['id', 'img', 'name', 'short_desc', 'status']);
 
         $categories = Category::all(['id', 'name']);
 

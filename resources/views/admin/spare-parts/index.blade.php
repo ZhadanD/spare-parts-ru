@@ -105,6 +105,10 @@ $title = 'Запчасти'
                         </div>
                     </div>
                 @endforeach
+
+                <div class="mt-2">
+                    {{ $spare_parts->links() }}
+                </div>
             @endif
         </div>
     </div>

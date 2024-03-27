@@ -80,6 +80,10 @@ $title = 'Категории'
                         </div>
                     </div>
                 @endforeach
+
+                <div class="mt-2">
+                    {{ $categories->links() }}
+                </div>
             @endif
         </div>
     </div>

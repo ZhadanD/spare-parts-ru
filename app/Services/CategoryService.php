@@ -9,7 +9,7 @@ class CategoryService
 {
     public function index()
     {
-        return Category::all(['id', 'img', 'name', 'short_desc']);
+        return Category::paginate(10, ['id', 'img', 'name', 'short_desc']);
     }
 
     public function store($data): void
