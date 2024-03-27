@@ -1,73 +1,49 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="icon" href="{{ asset('img/car-front.svg') }}">
-
-    <title>Главная страница</title>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="border-bottom pb-3 mb-3 d-flex justify-content-center flex-wrap py-3">
-                <div class="d-flex flex-column mb-3 mb-md-0 me-md-auto">
-                    <div class="text-center">
-                        <img src="{{ asset('img/car-front.svg') }}" alt="Логотип" width="50">
-                    </div>
-                    <span class="fs-4">Запчасти.ру</span>
+<?php
+$title = 'Главная страница';
+?>
+@extends('layouts.client')
+@section('content')
+    <div class="container">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="{{ asset('img/car-front.svg') }}" alt="Логотип сайта" width="100">
+            <h1 class="display-5 fw-bold text-body-emphasis">Интернет магазин "Запчасти.ру"</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4 fs-3">У нас в магазине вы можете купить любую запчасть, выложенную на этом сайте.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-dark btn-lg px-4 gap-3">Начать ознакомление</button>
                 </div>
-
-                <nav class="d-flex justify-content-end">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a href="{{ route('main') }}" class="nav-link link-dark">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link link-dark">Категории</a>
-                        </li>
-                        @if(isset(auth()->user()->role) && auth()->user()->role === 'admin')
-                            <li class="nav-item">
-                                <a href="{{ route('admin.main') }}" class="nav-link link-dark">В админку</a>
-                            </li>
-                        @endif
-
-                        @if(isset(auth()->user()->name))
-                            <div class="dropdown">
-                                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Здравствуйте, {{ auth()->user()->name }}!
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Профиль</a></li>
-
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        this.closest('form').submit();">Выйти</a></li>
-                                    </form>
-                                </ul>
-                            </div>
-                        @else
-                            <li class="nav-item">
-                                <a href="{{ route('login') }}" class="btn btn-outline-dark">Войти</a>
-                                <a href="{{ route('register') }}" class="btn btn-dark">Зарегистрироваться</a>
-                            </li>
-                        @endif
-                    </ul>
-                </nav>
             </div>
         </div>
-    </header>
 
-    <main></main>
+        <div id="company" class="border border-dark border-2 rounded p-3 my-2">
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="{{ asset('img/шестеренки.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">О компании</h2>
+                        <p class="lead fs-4">Наша компания является лидером в сфере продажи автомобильных запчастей и аксессуаров. Мы предлагаем широкий ассортимент запчастей для всех марок автомобилей, от классических до самых современных моделей. Наша команда состоит из опытных специалистов, которые всегда готовы помочь с выбором нужной запчасти или предложить альтернативные варианты. Мы ценим наших клиентов и стараемся удовлетворить их потребности в максимально короткие сроки.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <footer></footer>
+        <br/>
 
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+        <div id="contacts" class="border border-dark border-2 rounded p-3 my-2">
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold text-body-emphasis">Наши контакты</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 fs-4">Есть вопросы? Позвоните нам по номеру <span class="fw-bold">8-900-000-00-00</span> и мы ответим вам!</p>
+                    <p class="lead mb-4 fs-4">Мы находимся в городе Воронеж.</p>
+                </div>
+                <div class="overflow-hidden" style="max-height: 30vh;">
+                    <div class="container px-5">
+                        <img src="{{ asset('img/воронеж.png') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Воронеж" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
