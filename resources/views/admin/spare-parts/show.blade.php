@@ -99,7 +99,7 @@ $title = "Запчасть: {$arrData['sparePart']->name}"
         <div id="buttons-change-delete" class="d-flex">
             <button onclick="changeSparePart()" type="button" class="btn btn-warning m-2">Редактировать</button>
 
-            <form id="{{ 'delete-spare-part' . "-$arrData[sparePart]->id" }}" class="m-2" method="post">
+            <form id="{{ 'delete-spare-part' . "-{$arrData['sparePart']->id}" }}" class="m-2" method="post" action="{{ route('spare-parts.destroy', $arrData['sparePart']->id) }}">
                 @csrf
                 @method('delete')
 
