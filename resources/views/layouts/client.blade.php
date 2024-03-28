@@ -35,10 +35,10 @@
                         <a href="{{ route('client.categories.index') }}" class="nav-link {{ $currentUrl === route('client.categories.index') ? 'link-light bg-dark' : 'link-dark' }}">Категории</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#company" class="nav-link link-dark">О компании</a>
+                        <a href="{{ route('main') }}#company" class="nav-link link-dark">О компании</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contacts" class="nav-link link-dark">Наши контакты</a>
+                        <a href="{{ route('main') }}#contacts" class="nav-link link-dark">Наши контакты</a>
                     </li>
                     @if(isset(auth()->user()->role) && auth()->user()->role === 'admin')
                         <li class="nav-item">
@@ -88,10 +88,10 @@
                 <a href="{{ route('client.categories.index') }}" class="nav-link {{ $currentUrl === route('client.categories.index') ? 'link-light bg-dark' : 'link-dark' }}">Категории</a>
             </li>
             <li class="nav-item">
-                <a href="#company" class="nav-link link-dark">О компании</a>
+                <a href="{{ route('main') }}#company" class="nav-link link-dark">О компании</a>
             </li>
             <li class="nav-item">
-                <a href="#contacts" class="nav-link link-dark">Наши контакты</a>
+                <a href="{{ route('main') }}#contacts" class="nav-link link-dark">Наши контакты</a>
             </li>
             @if(isset(auth()->user()->role) && auth()->user()->role === 'admin')
                 <li class="nav-item">
