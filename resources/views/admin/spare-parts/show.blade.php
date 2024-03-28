@@ -5,7 +5,7 @@ $title = "Запчасть: {$arrData['sparePart']->name}"
 @section('content')
     <p class="fs-1 text-center">Запчасть: {{ $arrData['sparePart']->name }}</p>
 
-    <div class="border border-3 border-success rounded p-3">
+    <div class="border border-3 border-dark rounded p-3">
         <div class="text-center">
             <img width="400" src="{{ asset('storage/' . $arrData['sparePart']->img) }}" alt="Картинка запчасти" class="img-fluid rounded">
             @error('img')

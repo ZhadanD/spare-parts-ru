@@ -52,7 +52,7 @@ $title = 'Категории'
         </div>
     </div>
 
-    <div class="border border-3 border-success rounded p-3">
+    <div class="border border-3 border-dark rounded p-3">
         <div class="row">
             @if(count($categories) === 0)
                 <p class="fs-3 text-center">Нет категорий</p>

@@ -10,7 +10,7 @@ $title = 'Главная страница';
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4 fs-3">У нас в магазине вы можете купить любую запчасть, выложенную на этом сайте.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-dark btn-lg px-4 gap-3">Начать ознакомление</button>
+                    <a href="{{ route('client.categories.index') }}" class="btn btn-dark btn-lg px-4 gap-3">Начать ознакомление</a>
                 </div>
             </div>
         </div>

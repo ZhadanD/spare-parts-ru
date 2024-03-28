@@ -32,7 +32,7 @@
                         <a href="{{ route('main') }}" class="nav-link {{ $currentUrl === route('main') ? 'link-light bg-dark' : 'link-dark' }}">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link link-dark">Категории</a>
+                        <a href="{{ route('client.categories.index') }}" class="nav-link {{ $currentUrl === route('client.categories.index') ? 'link-light bg-dark' : 'link-dark' }}">Категории</a>
                     </li>
                     <li class="nav-item">
                         <a href="#company" class="nav-link link-dark">О компании</a>
@@ -85,7 +85,7 @@
                 <a href="{{ route('main') }}" class="nav-link {{ $currentUrl === route('main') ? 'link-light bg-dark' : 'link-dark' }}">Главная</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-dark">Категории</a>
+                <a href="{{ route('client.categories.index') }}" class="nav-link {{ $currentUrl === route('client.categories.index') ? 'link-light bg-dark' : 'link-dark' }}">Категории</a>
             </li>
             <li class="nav-item">
                 <a href="#company" class="nav-link link-dark">О компании</a>

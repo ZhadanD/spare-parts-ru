@@ -5,7 +5,7 @@ $title = "Категория: $category->name"
 @section('content')
     <p class="fs-1 text-center">Категория: {{ $category->name }}</p>
 
-    <div class="border border-3 border-success rounded p-3">
+    <div class="border border-3 border-dark rounded p-3">
         <div class="text-center">
             <img width="400" src="{{ asset('storage/' . $category->img) }}" alt="Картинка категории" class="img-fluid rounded">
             @error('img')

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
    Route::get('/', IndexController::class)->name('main');
 
+   Route::group(['prefix' => 'categories'], function () {
+       Route::get('/', 'CategoryController@index')->name('client.categories.index');
+       Route::get('/{category}', 'CategoryController@show')->name('client.categories.show');
+   });
+
    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
         Route::get('/', 'IndexController')->name('admin.main');
 
